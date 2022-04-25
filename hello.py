@@ -27,18 +27,23 @@ def color_char(list):
 
 #создадим непрерывающийся цикл
 
+from g1 import game
+
+game_=game()
+
 cond=1
 sc=1
 while cond==1:
     if(sc==6):
         cond=3
     name=input("Введите слово:")
+    print (game_.game_check(name))
     #print(str(sc)+" hello, "+name)
-    char_word=word_to_char(name)
-    print(char_word)
-    print(len(char_word))
+    #char_word=word_to_char(name)
+    #print(char_word)
+    #print(len(char_word))
 
-    print(color_char(char_word))
+    #print(color_char(char_word))
 
     sc+=1 
 

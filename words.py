@@ -8,6 +8,21 @@ def word_to_char(word):
     return result    
 
 
+#создает слово из разноцветных букв
+def color_char(list):
+    word =""
+    x=0
+    for i in list:
+        if(x==2):
+            i="\033[31m"+i+"\033[0m" #красный цвет
+        elif (x==4):
+            i="\033[32m"+i+"\033[0m" #зеленый цвет
+        word+=str(i)
+        x+=1
+
+    return word
+
+
 
 #создадим непрерывающийся цикл
 
@@ -15,7 +30,8 @@ game = "game"
 step = 1 #в начале мы делаем первый шаг
 while game == "game":
     you_word=input("Введите слово:") #введите Ваше слово
-    print(word_to_char(you_word)) #переводим слово в массив    
+    list=word_to_char(you_word) #переводим слово в массив    
+    print(color_char(list))
     if step==6: #если сделано 6 шагов
         print("Вы исчерпали все варианты") #вывод сообщения
         game="end" #выход из бесконечного цикла

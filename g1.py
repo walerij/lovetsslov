@@ -1,3 +1,4 @@
+#from cgitb import reset
 import random
 class game:
     def __init__(self) -> None:
@@ -43,19 +44,26 @@ class game:
     def game_check(self, word):
         if (len(word)!=5):
             return "слово не подходит"
-        list = self.word_to_char(word)
-        etalon = self.word_to_char(self.quest)
+        #list = self.word_to_char(word)
+        #etalon = self.word_to_char(self.quest)
         x=0
-        for i in list:
-            find = etalon.index(i)
+        screz=0
+        result=''
+        for i in word:
+            find = self.quest.find(i)
             if (find==-1):
                 pass            
-            if(x==find):
+            elif(x==find):
                 i=self.color_char(i,'green')
+                screz+=1
             elif (x!=find):
                 i=self.color_char(i,'red')
 
-        return(self.char_to_word(list))        
+            result =result+i
+            x+=1
+        if screz==5:
+            return result+"-слово угадано!"
+        return result       
 
 
 

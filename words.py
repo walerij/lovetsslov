@@ -9,10 +9,10 @@ def word_to_char(word):
 
 
 #создает слово из разноцветных букв
-def color_char(list):
+def color_char(content):
     word =""
     x=0
-    for i in list:
+    for i in content:
         if(x==2):
             i="\033[31m"+i+"\033[0m" #красный цвет
         elif (x==4):
@@ -29,9 +29,8 @@ def color_char(list):
 game = "game"
 step = 1 #в начале мы делаем первый шаг
 while game == "game":
-    you_word=input("Введите слово:") #введите Ваше слово
-    list=word_to_char(you_word) #переводим слово в массив    
-    print(color_char(list))
+    you_word=input("Введите слово:") #введите Ваше слово    
+    print(color_char(you_word)) #распечатаем слово с перекрашенными символами
     if step==6: #если сделано 6 шагов
         print("Вы исчерпали все варианты") #вывод сообщения
         game="end" #выход из бесконечного цикла

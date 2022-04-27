@@ -27,6 +27,7 @@ def color_char(list):
 
 #создадим непрерывающийся цикл
 
+from unittest import result
 from g1 import game
 
 game_=game()
@@ -37,7 +38,12 @@ while cond==1:
     if(sc==6):
         cond=3
     name=input("Введите слово:")
-    print (game_.game_check(name))
+    #print(game_.color_char(name,'red'))
+    result = game_.game_check(name)
+    print (result)
+    if (result.find("-слово угадано!")!=-1):
+        cond=3
+    #    re.finditer() нам надо копать в сторону этой функции
     #print(str(sc)+" hello, "+name)
     #char_word=word_to_char(name)
     #print(char_word)

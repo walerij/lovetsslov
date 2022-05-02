@@ -15,11 +15,11 @@ def color_char(list):
     word =""
     x=0
     for i in list:
-        if(x==2):
-            i="\033[31m"+i+"\033[0m" #красный цвет
-        elif (x==4):
-            i="\033[32m"+i+"\033[0m" #зеленый цвет
-        word+=str(i)
+        if(i[1]=='red'):
+            i[0]="\033[31m"+i[0]+"\033[0m" #красный цвет
+        elif (i[1]=='green'):
+            i[0]="\033[32m"+i[0]+"\033[0m" #зеленый цвет
+        word+=str(i[0])
         x+=1
 
     return word
@@ -37,12 +37,15 @@ sc=1
 while cond==1:
     if(sc==6):
         cond=3
+   
     name=input("Введите слово:")
     #print(game_.color_char(name,'red'))
-    result = game_.game_check(name)
+    result = color_char(game_.check(name))
     print (result)
-    if (result.find("-слово угадано!")!=-1):
-        cond=3
+    if(game_.game=='end'):
+        cond=3 
+    # if (result.find("-слово угадано!")!=-1):
+    #    cond=3
     #    re.finditer() нам надо копать в сторону этой функции
     #print(str(sc)+" hello, "+name)
     #char_word=word_to_char(name)

@@ -2,7 +2,7 @@
 import random
 class game:
     def __init__(self) -> None:
-        self.game = game
+        self.game = 'game'
         self.worklist = ['мираж','конец','фильм',"иваси","камин","визит","стиль","бобби","тапир","шпага","сабля"]
         self.i = random.randint(0,len(self.worklist))
         self.quest = self.worklist[self.i]
@@ -63,7 +63,30 @@ class game:
             x+=1
         if screz==5:
             return result+"-слово угадано!"
-        return result       
+        return result     
+
+
+    def check(self, word):
+        result=[]
+        x=0
+        screz=0
+        if word==self.quest:
+            for i in word:
+                result.append([i,'green'])
+            self.game='end'    
+            return result
+        elif word!=self.quest:
+            for i in word:
+                find = self.quest.find(i)
+                if (find==-1):
+                    result.append([i,''])            
+                elif(x==find):
+                    result.append([i,'green'])
+                    screz+=1
+                elif (x!=find):
+                    result.append([i,'red'])            
+                x+=1                  
+            return result
 
 
 

@@ -26,17 +26,14 @@ def color_char(content):
 
 #создадим непрерывающийся цикл
 
-game = "game"
+gamestatus = "game"
 step = 1 #в начале мы делаем первый шаг
 from game import game
 gameset = game()
-
-"""
-while game == "game":
+while gamestatus == "game":
     you_word=input("Введите слово:") #введите Ваше слово    
-    print(color_char(you_word)) #распечатаем слово с перекрашенными символами
+    print(gameset.check(you_word)) #проверяем слово
     if step==6: #если сделано 6 шагов
         print("Вы исчерпали все варианты") #вывод сообщения
-        game="end" #выход из бесконечного цикла
+        gamestatus="end" #выход из бесконечного цикла
     step+=1 #число шагов увеличиваем на единицу
-"""

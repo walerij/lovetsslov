@@ -1,11 +1,6 @@
-g = [["п","red"],["е","green"],["ч","red"],["к","red"],["е","green"]]
+words=[]
+with open("wo.txt","r") as f:
+    line = f.read().splitlines()
+    words=line
 
-#print(g[0][0], g[0][1])
-
-d = []
-
-for i in range(5):
-    d.append([i,"red"])
-
-print(d)
-print(d[0][1])
+print(words)

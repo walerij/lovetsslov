@@ -34,10 +34,11 @@ while gamestatus == "game":
     print(color_char(gameset.check(you_word))) #проверяем слово
     if gameset.win=='user':
         print("Победил пользователь") #вывод сообщения
-        gamestatus="end" #выход из бесконечного цикла        
+        gamestatus="end" #выход из бесконечного цикла 
+        break       
     if step==6: #если сделано 6 шагов
         gameset.win=='comp'
         print("Вы исчерпали все варианты") #вывод сообщения
-        print("Победил компьютер")
+        print("Победил компьютер. Загаданное слово: "+gameset.quest)
         gamestatus="end" #выход из бесконечного цикла
     step+=1 #число шагов увеличиваем на единицу

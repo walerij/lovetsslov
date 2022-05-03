@@ -1,12 +1,3 @@
-#функция разбивки слова на символы
-# разбивает слово на символы и передает его в массиве
-def word_to_char(word):
-    result=[]
-    for i in word:
-        result.append(i)
-
-    return result    
-
 
 #создает слово из разноцветных букв списка
 def color_char(content):

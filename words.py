@@ -8,17 +8,16 @@ def word_to_char(word):
     return result    
 
 
-#создает слово из разноцветных букв
+#создает слово из разноцветных букв списка
 def color_char(content):
-    word =""
-    x=0
+    word =""    
     for i in content:
-        if(x==2):
-            i="\033[31m"+i+"\033[0m" #красный цвет
-        elif (x==4):
-            i="\033[32m"+i+"\033[0m" #зеленый цвет
-        word+=str(i)
-        x+=1
+        if(i[1]=='red'):
+            i[0]="\033[31m"+i[0]+"\033[0m" #красный цвет
+        elif (i[1]=='green'):
+            i[0]="\033[32m"+i[0]+"\033[0m" #зеленый цвет
+        word+=str(i[0])
+       
 
     return word
 
@@ -32,7 +31,7 @@ from game import game
 gameset = game()
 while gamestatus == "game":
     you_word=input("Введите слово:") #введите Ваше слово    
-    print(gameset.check(you_word)) #проверяем слово
+    print(color_char(gameset.check(you_word))) #проверяем слово
     if step==6: #если сделано 6 шагов
         print("Вы исчерпали все варианты") #вывод сообщения
         gamestatus="end" #выход из бесконечного цикла

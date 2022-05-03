@@ -1,5 +1,4 @@
 import random
-from unittest import result
 class game:
     def __init__(self) -> None:
         self.workslist= ["почка","печка","конец","игрок","стена","масло"]
